@@ -1,0 +1,79 @@
+body {
+	font-family: Georgia, serif;
+	color #222;
+	text-align: center;
+	margin: 10 0;
+	border-top: 10px SOLID #DDDDDD;
+}
+
+pre {
+	margin: 10 10 10 0;
+	overflow: visible;
+	clear: right;
+}
+
+ul, ol {
+	list-style-position: outside;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+ol.commentlist {
+  list-style-type: none;
+}
+
+  ol.commentlist div#comment_meta {
+    float:left;
+    width: 20%;
+    background-color: #dddddd;
+  }
+  
+  ol.commentlist div#comment_meta span.name { font-weight: bold; }
+  
+  ol.commentlist div#comment_text {
+    float: right;
+    width: 75%;
+  }
+  
+  ol.commentlist li.comment {
+    padding-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+  }
+
+#wrapper {
+	width: 800px;
+	margin: 20 auto;
+	text-align: left;
+}
+
+	#header {
+		width: 100%;
+	}
+	
+	#content {
+		width: 70%;
+		float: left;
+		
+	}
+		
+		#post img, #post-single img {
+			position: relative;
+			margin: 5 5 5 -10;
+		}
+		
+			#post-separator {
+				text-align: center;
+				font-weight: bold;
+				margin: 10px;
+			}
+	
+	#sidebar {
+		float: right;
+		width: 20%;
+	}
+

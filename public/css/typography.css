@@ -1,0 +1,29 @@
+a {
+	color: #0000FF;
+}
+
+a:visited {
+	color: #80080;
+}
+
+a:hover {
+	color: #FF0000;
+}
+
+p, a, span, input, textarea, label, li {
+	line-height: 20px;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
+}
+
+
+blockquote {
+	color: #555555;
+}
+
+#post-single h3 {
+	font-style: italic;
+	font-weight: normal;
+}

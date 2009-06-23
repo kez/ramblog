@@ -1,0 +1,8 @@
+%div{:id => "post-#{@post[:id]}", :class => 'post'}
+  %h2{:class => 'post-title'}= @post.title
+  %span{:class => 'post-date'}
+  = 'Published on '
+  = @post[:post_date].strftime(CONFIG.blog.dateformat)
+  
+  %div{:class => 'post-content'}
+    = RDiscount.new(@post[:post_content]).to_html

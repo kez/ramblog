@@ -1,0 +1,9 @@
+CONFIG = Configuration.for('Ramblog') {
+
+  database do
+    server "localhost"
+    name "justkez"
+    user ""
+    password ""
+  end
+}

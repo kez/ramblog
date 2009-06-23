@@ -1,0 +1,8 @@
+- if !@post and @posts
+  - if @posts.count > 0
+    - @posts.each do |post|
+      = render_partial("/_front-page-post", 'post' => post)
+  
+
+- if @post
+  = render_partial("/_post", 'post' => @post)
