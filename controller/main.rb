@@ -9,15 +9,14 @@ class MainController < Controller
   # the index action is called automatically when no other action is specified
   def index slug = nil, page = 1
 
-    
-    if slug == nil
-      @offset = page
+
+    if slug == "page"
+      @offset = page.to_i
     
       @posts = Post.filter(:post_status => 'publish').order(:post_date.desc).paginate(@offset, 10)
-    end
     
     
-    if slug != nil
+    elsif slug != nil
         @post = Post[:post_name => slug]
         @title = CONFIG.blog.name + " - " + @post.title
     end

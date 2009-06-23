@@ -1,8 +1,16 @@
 - if !@post and @posts
   - if @posts.count > 0
+    = "Page #{@offset}"
+    - if @offset > 1
+      %a{:href => r(:page, @offset -1)}= 'Previous'
+    %a{:href => r(:page, @offset +1)}= 'Next'
+    
+      
     - @posts.each do |post|
       = render_partial("/_front-page-post", 'post' => post)
-  
+
+   
+
 
 - if @post
   = render_partial("/_post", 'post' => @post)
