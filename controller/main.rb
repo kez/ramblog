@@ -9,11 +9,13 @@ class MainController < Controller
   # the index action is called automatically when no other action is specified
   def index slug = nil, page = 1
 
+    # select * from wp_term_relationships a inner join wp_term_taxonomy b on a.term_taxonomy_id = b.term_taxonomy_id inner join wp_terms c on b.term_id = c.term_id where object_id=99;
 
-    if slug == "page"
+
+    if slug == "page" or slug == nil
       @offset = page.to_i
     
-      @posts = Post.filter(:post_status => 'publish').order(:post_date.desc).paginate(@offset, 10)
+      @posts = Post.filter(:post_status => 'publish').filter(:post_type => 'post').order(:post_date.desc).paginate(@offset, 10)
     
     
     elsif slug != nil
