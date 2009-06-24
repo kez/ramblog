@@ -17,7 +17,9 @@
     %li
       %label{:for => 'author_comment'}= 'Your comment'
       %textarea{:name => 'author_comment', :id => 'author_comment', :cols => 40, :rows => 10}= @comment[:comment_content]
-    
+      %br
+      %span{:class => 'form_note'}= 'Markdown is ok'
+      
     %li
       %label{:for => 'simple_captcha'}
         = 'What is '
