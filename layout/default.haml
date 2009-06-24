@@ -2,6 +2,7 @@
   %head
     = css_for *%w[screen typography]
     %title= @title
+    %meta{:content => CONFIG.blog.description, :name => 'description'}
   %body
     %div{:id => 'wrapper'}
       %div{:id => 'header'}
