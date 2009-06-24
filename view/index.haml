@@ -1,10 +1,11 @@
 - if !@post and @posts
   - if @posts.count > 0
     - if @offset
-      = "Page #{@offset}"
+      = "Page #{@offset} of #{@page_count}"
       - if @offset > 1
         %a{:href => r(:page, @offset -1)}= 'Previous'
-      %a{:href => r(:page, @offset +1)}= 'Next'
+      - if @offset < @page_count
+        %a{:href => r(:page, @offset +1)}= 'Next'
     
       
     - @posts.each do |post|
