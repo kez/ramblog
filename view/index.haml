@@ -12,7 +12,14 @@
     - @posts.each do |post|
       - if post != nil
         = render_partial("/_front-page-post", 'post' => post)
-
+        
+  - if @offset
+    %div{:id => 'page-navigation'}
+      - if @offset > 1
+        %a{:href => r(:page, @offset -1)}= '&laquo; Previous '
+      = "Page #{@offset} of #{@page_count}"
+      - if @offset < @page_count
+        %a{:href => r(:page, @offset +1)}= ' Next &raquo;'
    
 
 
