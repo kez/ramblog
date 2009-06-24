@@ -7,7 +7,7 @@
   %div{:class => 'post-content'}
     = @post.content
   
-  - if @post.tags.size > 0
+  - if @post.tags.count > 0
     %div{:id => 'tag-list'}
       = 'Tags: '
       - @post.tags.each do |tag|
@@ -22,7 +22,11 @@
           %li{:class => 'comment'}
             %div{:class => 'clear'}
             %div{:id => 'comment_meta'}
-              %span{:class => 'name'}= comment[:comment_author]
+              - if comment[:comment_author_url] != nil
+                %span{:class => 'name'}
+                  %a{:href => comment[:comment_author_url]}= comment[:comment_author]
+              - else
+                %span{:class => 'name'}= comment[:comment_author]
               = ' on '
               = comment[:comment_date].strftime(CONFIG.blog.dateformat)
 
@@ -32,5 +36,6 @@
     %p= 'No comments yet'
   
   - if post[:comment_status] == "open"
+    #flashbox= flashbox
     = render_partial('/_comment_form', 'post' => @post)
     

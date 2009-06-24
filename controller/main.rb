@@ -34,6 +34,9 @@ class MainController < Controller
         if request.post?
           Ramaze::Log.debug request.params["REMOTE_ADDR"]
           
+          
+          
+          
           if check_captcha(request[:simple_captcha])
           
             @comment[:comment_author] = request[:author_name]
@@ -44,6 +47,11 @@ class MainController < Controller
             @comment[:comment_date] = Time.now
             @comment[:comment_date_gmt] = Time.now
             @comment[:comment_content] = request[:author_comment]
+          
+           if request[:author_name] = nil or request[:author_email] = nil or request[:author_url] = nil or request[:author_comment] = nil
+             flash[:error] = "Please complete all fields"
+             return
+            end
           
             if @comment.save
               @post[:comment_count] += 1
