@@ -1,3 +1,7 @@
+* {
+	color: #333;
+}
+
 a {
 	color: #0000FF;
 }
@@ -18,12 +22,30 @@ h1, h2, h3, h4 {
 	font-weight: normal;
 }
 
+	h1.site_title a {
+		color: #333;
+		font-size: 34px;
+	}
+	
+	h2.post-title, h2.post-title a {
+		color: #333;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
 
 blockquote {
 	color: #555555;
 }
 
-#post-single h3 {
+
+
+div.post-content h3, div.post-content h2 {
 	font-style: italic;
-	font-weight: normal;
+	font-weight: bold;
+}
+
+
+div#tag-list {
+	font-weight: bold;
 }

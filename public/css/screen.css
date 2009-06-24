@@ -7,7 +7,7 @@ body {
 }
 
 pre {
-	margin: 10 10 10 0;
+	margin: 0px;
 	overflow: visible;
 	clear: right;
 }
@@ -27,16 +27,18 @@ ol.commentlist {
 }
 
   ol.commentlist div#comment_meta {
-    float:left;
-    width: 20%;
+
+
     background-color: #dddddd;
   }
   
   ol.commentlist div#comment_meta span.name { font-weight: bold; }
   
   ol.commentlist div#comment_text {
-    float: right;
-    width: 75%;
+
+
+	padding: 0px;
+	margin: 0px;
   }
   
   ol.commentlist li.comment {
@@ -76,4 +78,45 @@ ol.commentlist {
 		float: right;
 		width: 20%;
 	}
+
+
+/* Form */
+form ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  form ol li {
+    margin: 6px; }
+form label {
+  display: block;
+  min-width: 120px;
+  font-weight: bold;
+  font-size: 13px;
+  vertical-align: top; }
+form input, form textarea {
+  padding: 5px;
+  font-size: 13px;
+  overflow: visible;
+  margin-top: 3px;
+  margin-left: 5px; }
+form legend {
+  font-size: 20px;
+  background-color: #3c485c;
+  color: #FFFFFF;
+  padding: 10px;
+  width: 30%;
+  display: none; }
+form select {
+  margin-top: 3px;
+  margin-left: 5px; }
+form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0; }
+
+.form_note {
+  color: #666666;
+  font-style: italic;
+  font-size: 12px;
+  padding-left: 5px; }
 
