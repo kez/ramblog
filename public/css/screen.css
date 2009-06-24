@@ -3,7 +3,7 @@ body {
 	color #222;
 	text-align: center;
 	margin: 10 0;
-	border-top: 10px SOLID #DDDDDD;
+	border-top: 10px SOLID #DDD;
 }
 
 pre {
@@ -62,6 +62,14 @@ ol.commentlist {
 		float: left;
 		
 	}
+	
+		#page-navigation {
+			text-align: center;
+			background-color: #EEE;
+			border: 1px SOLID #DDD;
+			padding: 3px;
+			color: #666;
+		}
 		
 		#post img, #post-single img {
 			position: relative;
@@ -69,6 +77,7 @@ ol.commentlist {
 		}
 		
 			#post-separator {
+				color: #999;
 				text-align: center;
 				font-weight: bold;
 				margin: 10px;
@@ -77,6 +86,16 @@ ol.commentlist {
 	#sidebar {
 		float: right;
 		width: 20%;
+	}
+	
+	#footer {
+		margin-top: 30px;
+		padding: 5px;
+		text-align: center;
+	}
+	
+	#footer p { 
+		color: #666;
 	}
 
 

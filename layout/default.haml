@@ -3,6 +3,9 @@
     = css_for *%w[screen typography]
     %title= @title
     %meta{:content => CONFIG.blog.description, :name => 'description'}
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "#{CONFIG.blog.name} RSS Feed", :href => "http://feeds.feedburner.com/Justkez"}
+    
+    
   %body
     %div{:id => 'wrapper'}
       %div{:id => 'header'}
@@ -14,3 +17,18 @@
         
       %div{:id => 'content'}
       = @content
+      
+      %div{:id => 'footer'}
+        %p
+          = CONFIG.blog.name
+          = ' is a blog maintained by ' 
+          = CONFIG.blog.author
+          = '. There is an '
+          %a{:href => 'http://feeds.feedburner.com/Justkez', :title => 'Justkez.com RSS Feed'}= 'RSS news feed'
+          = ' for the posts.'
+        
+        %p
+          = 'Feel free to drop him an e-mail: '
+          == <a href="mailto:k&#100;&#111;b&#115;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;c&#111;&#109;">k&#100;&#111;&#98;&#115;o&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+        
+        
