@@ -7,7 +7,7 @@
   %div{:class => 'post-content'}
     = @post.content
   
-  - if @post.tags.count > 0
+  - if @post.tags.size > 0
     %div{:id => 'tag-list'}
       = 'Tags: '
       - @post.tags.each do |tag|
