@@ -18,7 +18,7 @@ class MainController < Controller
       @offset = arg2.to_i
       @page_count = (Post.select(:ID).filter(:post_status => 'publish').filter(:post_type => 'post').count / CONFIG.blog.posts_per_page.to_i) + 1
     
-      @posts = Post.filter(:post_status => 'publish').filter(:post_type => 'post').order(:post_date.desc).paginate(@offset, CONFIG.blog.posts_per_page.to_i)
+      @posts = Post.filter(:post_status => 'publish').filter(:post_type => 'post').order(:post_date.desc).paginate(@offset, CONFIG.blog.posts_per_page.to_i).all
       
     elsif arg1 == "tag" and arg2 != nil
      
