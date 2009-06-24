@@ -1,0 +1,31 @@
+%h1= 'Post a comment'
+%form{:method => 'POST'}
+  %input{:type => 'hidden', :name => 'post_id', :value => @post[:ID]}
+  %ol
+    %li
+      %label{:for => 'author_name'}= 'Your name'
+      %input{:name => 'author_name', :id => 'author_name', :value => @comment[:comment_author]}
+    
+    %li
+      %label{:for => 'author_email'}= 'Your e_mail'
+      %input{:name => 'author_email', :id => 'author_email', :value => @comment[:comment_author_email]}
+    
+    %li
+      %label{:for => 'author_url'}= 'Your url'
+      %input{:name => 'author_url', :id => 'author_url', :value => @comment[:comment_author_url]}
+  
+    %li
+      %label{:for => 'author_comment'}= 'Your comment'
+      %textarea{:name => 'author_comment', :id => 'author_comment', :cols => 40, :rows => 10}= @comment[:comment_content]
+    
+    %li
+      %label{:for => 'simple_captcha'}
+        = 'What is '
+        = simple_captcha
+        = '?'
+      %input{:name => 'simple_captcha', :id => 'simple_captcha', :value => '', :size => 5}
+      
+    %li
+      %label{:for => 'submit'}= ''
+      %input{:type => 'submit', :value => 'Add comment'}
+  

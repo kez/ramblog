@@ -5,4 +5,36 @@
   = @post[:post_date].strftime(CONFIG.blog.dateformat)
   
   %div{:class => 'post-content'}
-    = RDiscount.new(@post[:post_content]).to_html
+    = @post.content
+  
+  - if @post.tags.count > 0
+    %div{:id => 'tag-list'}
+      = 'Tags: '
+      - @post.tags.each do |tag|
+        %a{:href => r(:tag, tag[:slug]), :class => 'tag'}= tag[:name]
+  
+  %h1= 'Comments'
+  
+  - if @post[:comment_count] > 0
+    %div{:id => 'comments'}
+      %ol{:class => 'commentlist'}
+        - @post.comments.each do |comment|
+          %li{:class => 'comment'}
+            %div{:class => 'clear'}
+            %div{:id => 'comment_meta'}
+              - if comment[:comment_author_url] != nil
+                %span{:class => 'name'}
+                  %a{:href => comment[:comment_author_url]}= comment[:comment_author]
+              - else
+                %span{:class => 'name'}= comment[:comment_author]
+              = ' on '
+              = comment[:comment_date].strftime(CONFIG.blog.dateformat)
+
+            %div{:class => 'comment_text'}
+              = RDiscount.new(comment[:comment_content]).to_html
+  - else
+    %p= 'No comments yet'
+  
+  - if post[:comment_status] == "open"
+    = render_partial('/_comment_form', 'post' => @post)
+    
