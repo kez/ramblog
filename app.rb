@@ -8,9 +8,12 @@ require 'ramaze'
 require 'sequel'
 require 'configuration'
 require 'rdiscount'
-
+require 'maruku'
 # Make sure that Ramaze knows where you are
 Ramaze.options.roots = [__DIR__]
+
+
+
 
 Sequel.extension :pagination
 
