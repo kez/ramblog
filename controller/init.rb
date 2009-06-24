@@ -3,7 +3,7 @@
 
 class Controller < Ramaze::Controller
   layout('default'){|path, wish| !request.xhr?}
-  helper :xhtml
+  helper :xhtml, :simple_captcha
   engine :Haml
 
   before_all { $title = "Justkez" }
