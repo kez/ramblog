@@ -9,9 +9,10 @@ class MainController < Controller
   # the index action is called automatically when no other action is specified
   def index arg1 = nil, arg2 = 1, arg3 = nil, arg4 = nil
 
-    # select * from wp_term_relationships a inner join wp_term_taxonomy b on a.term_taxonomy_id = b.term_taxonomy_id inner join wp_terms c on b.term_id = c.term_id where object_id=99;
+  
+  # select * from wp_term_relationships a inner join wp_term_taxonomy b on a.term_taxonomy_id = b.term_taxonomy_id inner join wp_terms c on b.term_id = c.term_id where object_id=99;
 
-	Â# TODO: Handle NoMethodError?
+	#TODO: Handle NoMethodError?
     if arg1 == "page" or arg1 == nil
       @title = CONFIG.blog.name
       
@@ -34,11 +35,6 @@ class MainController < Controller
         if request.post?
           Ramaze::Log.debug request.params["REMOTE_ADDR"]
           
-          
-          
-          
-          if check_captcha(request[:simple_captcha])
-          
             @comment[:comment_author] = request[:author_name]
             @comment[:comment_post_ID] = request[:post_id]
             @comment[:comment_author_email] = request[:author_email]
@@ -48,19 +44,21 @@ class MainController < Controller
             @comment[:comment_date_gmt] = Time.now
             @comment[:comment_content] = request[:author_comment]
           
-           if request[:author_name] = nil or request[:author_email] = nil or request[:author_url] = nil or request[:author_comment] = nil
+          if request[:author_name] == '' or request[:author_email] == '' or request[:author_url] == '' or request[:author_comment] == ''
              flash[:error] = "Please complete all fields"
              return
             end
           
+          
+          if check_captcha(request[:simple_captcha])
             if @comment.save
               @post[:comment_count] += 1
               @post.save
+              @comment = Comment.new
               
               flash[:message] = "Thanks for the comment"
             else
               Ramaze::Log.error "Error saving comment"
-              Ramaze::Log.error @comment
             end
             
             
@@ -74,9 +72,10 @@ class MainController < Controller
     else 
 	#£if arg1 != nil and @post != Post[:post_name => arg1]
       @title = "Oops"
-	@error = "Nothing found!"
-
-	render('/error')	
+      @error = "Nothing found!"
+      #respond('Page not found', 404)
+      #render_template('error', 404)
+      respond('/error', 404)
     end
     
   end
@@ -89,8 +88,8 @@ class MainController < Controller
   end
   
   def error
-    Ramaze::Log.debug 'oh no!'
-    'oh no'
+    #respond('Not found', 404)
+    Ramaze::Log.debug 'error'
   end
   
   def post_comment

@@ -1,10 +1,11 @@
-%html
-  %head
-    = css_for *%w[screen typography]
+%html{:xmlns => "http://www.w3.org/1999/xhtml", :dir => "ltr", :lang => "en-US"}
+  %head{:profile => "http://gmpg.org/xfn/11"}
+    == <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     %title= @title
+    = css_for *%w[screen typography]
     %meta{:content => CONFIG.blog.description, :name => 'description'}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => "#{CONFIG.blog.name} RSS Feed", :href => "http://feeds.feedburner.com/Justkez"}
-    
+    %link{:rel => "pingback", :href => "http://wp.justkez.com/xmlrpc.php"}
     
   %body
     %div{:id => 'wrapper'}
@@ -31,4 +32,13 @@
           = 'Feel free to drop him an e-mail: '
           == <a href="mailto:k&#100;&#111;b&#115;&#111;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;c&#111;&#109;">k&#100;&#111;&#98;&#115;o&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
         
-        
+
+- if request.env["SERVER_NAME"].include?("justkez.com")
+  == <script type="text/javascript">
+  == var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  == document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  == var pageTracker = _gat._getTracker("UA-65214-6");
+  == pageTracker._initData();
+  == pageTracker._trackPageview();
+  == </script>
+

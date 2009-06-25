@@ -138,4 +138,26 @@ form fieldset {
   font-style: italic;
   font-size: 12px;
   padding-left: 5px; }
+  
+
+/* Flash box */
+#flashbox {
+  padding: 5px;
+  margin: 5px;
+  padding-left: 0px;
+  margin-left: 0px; }
+
+#flash_message {
+  color: green;
+  margin-left: 0px;
+  background-color: #d4efd4;
+  border: 1px solid green;
+  padding: 5px; }
+
+#flash_error {
+  color: red;
+  margin-left: 0px;
+  background-color: pink;
+  border: 1px solid red;
+  padding: 5px; }
 
