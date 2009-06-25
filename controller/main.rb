@@ -11,7 +11,7 @@ class MainController < Controller
 
     # select * from wp_term_relationships a inner join wp_term_taxonomy b on a.term_taxonomy_id = b.term_taxonomy_id inner join wp_terms c on b.term_id = c.term_id where object_id=99;
 
-
+	Â# TODO: Handle NoMethodError?
     if arg1 == "page" or arg1 == nil
       @title = CONFIG.blog.name
       
@@ -71,8 +71,12 @@ class MainController < Controller
         end
         
         
-    elsif arg1 != nil and @post != Post[:post_name => arg1]
-      'oh noes'
+    else 
+	#£if arg1 != nil and @post != Post[:post_name => arg1]
+      @title = "Oops"
+	@error = "Nothing found!"
+
+	render('/error')	
     end
     
   end

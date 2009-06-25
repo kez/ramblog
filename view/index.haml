@@ -1,3 +1,6 @@
+- if @error
+  %p= @error
+
 - if !@post and @posts
   - if @posts.size > 0
     - if @offset
