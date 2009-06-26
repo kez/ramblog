@@ -76,7 +76,7 @@ ol.commentlist {
 			margin: 5 5 5 -10;
 		}
 		
-			#post-separator {
+			.post-separator {
 				color: #999;
 				text-align: center;
 				font-weight: bold;

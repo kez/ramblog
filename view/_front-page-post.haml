@@ -1,10 +1,10 @@
 - if @post
-  %div{:id => 'post', :class => 'post front-page'}
+  %div{:id => "post-#{@post[:ID]}", :class => 'post front-page'}
     %h2{:class => 'post-title front-page'}
       %a{:href => "#{r(@post.slug)}/"}
         = @post.title
     %div{:class => 'post-preview'}
       = @post.preview
     
-    %div{:id => 'post-separator'}
+    %div{:class => 'post-separator'}
       = '- # # # -'

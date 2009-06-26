@@ -12,7 +12,7 @@ require 'maruku'
 require 'memcache'
 
 $CACHE = MemCache.new 'localhost:11211', :namespace => 'blog'
-
+Ramaze::Log.debug $CACHE
 # Make sure that Ramaze knows where you are
 Ramaze.options.roots = [__DIR__]
 
