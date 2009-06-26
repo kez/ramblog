@@ -2,7 +2,9 @@ require 'model/comment'
 require 'model/term'
 
 class Post < Sequel::Model(CONFIG.database.mappings[:posts].to_sym)
-  
+
+# set_cache $CACHE, :ttl => 3600
+
   def title
     self[:post_title]
   end

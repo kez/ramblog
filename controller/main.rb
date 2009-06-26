@@ -33,7 +33,7 @@ class MainController < Controller
         @comment = Comment.new
         
         if request.post?
-          Ramaze::Log.debug request.params["REMOTE_ADDR"]
+          #Ramaze::Log.debug request.params["REMOTE_ADDR"]
           
             @comment[:comment_author] = request[:author_name]
             @comment[:comment_post_ID] = request[:post_id]
@@ -69,8 +69,7 @@ class MainController < Controller
         end
         
         
-    else 
-	#£if arg1 != nil and @post != Post[:post_name => arg1]
+    elsif arg1 != nil and @post != Post[:post_name => arg1]
       @title = "Oops"
       @error = "Nothing found!"
       #respond('Page not found', 404)

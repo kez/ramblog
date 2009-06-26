@@ -7,4 +7,4 @@ require File.expand_path('app', File.dirname(__FILE__))
 
 # :sourcereload => false
 
-Ramaze.start(:adapter => :thin, :port => 7000, :file => __FILE__)
+Ramaze.start(:adapter => :thin, :port => 7771, :file => __FILE__, :mode => :live)

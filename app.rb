@@ -9,6 +9,10 @@ require 'sequel'
 require 'configuration'
 require 'rdiscount'
 require 'maruku'
+require 'memcache'
+
+#$CACHE = MemCache.new 'localhost:11211', :namespace => 'blog'
+
 # Make sure that Ramaze knows where you are
 Ramaze.options.roots = [__DIR__]
 
@@ -16,6 +20,7 @@ Ramaze.options.roots = [__DIR__]
 
 
 Sequel.extension :pagination
+#Sequel::Model.plugin :caching
 
 require __DIR__('config')
 
